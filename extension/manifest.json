@@ -1,0 +1,20 @@
+{
+
+  "manifest_version": 2,
+  "name": "GDPR",
+  "version": "1.0",
+
+  "description": "Gives GDPR information for a webpage",
+
+  "icons": {
+    "48": "icons/border-48.png"
+  },
+
+  "content_scripts": [
+    {
+      "matches": ["*://*/"],
+      "js": ["extension.js"]
+    }
+  ]
+
+}
