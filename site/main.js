@@ -124,8 +124,8 @@ var populateHTML = function (data, el) {
             var itemContainer = document.createElement("div");
             itemContainer.classList.add(prefix + "tracker-container")
             var emailEl = document.createElement("a");
-            emailEl.href = "mailto:" + trackerUrl;
-            emailEl.innerHTML = trackerUrl;
+            emailEl.href = "mailto:" + email;
+            emailEl.innerHTML = email;
             itemContainer.appendChild(emailEl);
             contactEmails.appendChild(itemContainer);
         }
