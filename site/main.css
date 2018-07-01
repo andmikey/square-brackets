@@ -20,12 +20,12 @@ main {
   width: 100%;
   height: 100vh; }
   main section {
-    width: 100%; }
+    width: 100%;
+    padding: 80px; }
 
 /* Home */
 #home {
   min-height: 100vh;
-  padding: 80px;
   display: flex;
   flex-flow: column;
   align-items: center;
