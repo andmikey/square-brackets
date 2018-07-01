@@ -88,6 +88,13 @@ main {
     }
 }
 
+.status--good {
+    background-color: #aea;
+}
+.status--bad {
+    background-color: #eaa;
+}
+
 .complete {
     body:not(.mode--complete) & { display: none !important; }
     padding: 1rem;
@@ -125,15 +132,6 @@ main {
         &__status {
             padding: 3px;
             border-radius: 3px;
-            &--0 {
-                background-color: #aea;
-            }
-            &--3, &--2, &--1 {
-                background-color: #eea;
-            }
-            &--6, &--5, &--4 {
-                background-color: #eaa;
-            }
         }
     }
     .url { font-size: 1.5rem; }

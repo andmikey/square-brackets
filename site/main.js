@@ -96,20 +96,40 @@ var populateHTML = function (data, el) {
     trackerCount.innerHTML = data.trackers.length;
     var trackers = getComponent("trackers")[0];
     trackers.innerHTML = "";
+    trackerTitle = getComponent("trackers-title")[0];
     if (data.trackers.length === 0) {
+        trackerTitle.classList.add("status--good");
         trackers.innerHTML = "Site does not use any tracking programs.";
     } else {
+        trackerTitle.classList.add("status--bad");
         for (var trackerUrl of data.trackers) {
-            var trackerContainer = document.createElement("div");
-            trackerContainer.classList.add(prefix + "tracker-container")
+            var itemContainer = document.createElement("div");
+            itemContainer.classList.add(prefix + "tracker-container")
             var trackerEl = document.createElement("a");
             trackerEl.href = trackerUrl;
             trackerEl.innerHTML = trackerUrl;
-            trackerContainer.appendChild(trackerEl);
-            trackers.appendChild(trackerContainer);
+            itemContainer.appendChild(trackerEl);
+            trackers.appendChild(itemContainer);
         }
     }
 
+    var contactEmails = getComponent("contact-emails")[0];
+    var contactEmailsTitle = getComponent("contact-emails-title")[0];
+    if (data.contact_emails.length === 0) {
+        contactEmailsTitle.classList.add("status--bad")
+        contactEmails.innerHTML = "This site does not provide a contact point for data privacy requests.";
+    } else {
+        contactEmailsTitle.classList.add("status--good")
+        for (var email of data.contact_emails) {
+            var itemContainer = document.createElement("div");
+            itemContainer.classList.add(prefix + "tracker-container")
+            var emailEl = document.createElement("a");
+            emailEl.href = "mailto:" + trackerUrl;
+            emailEl.innerHTML = trackerUrl;
+            itemContainer.appendChild(emailEl);
+            contactEmails.appendChild(itemContainer);
+        }
+    }
 }
 
 var websiteInput = document.getElementsByName("website")[0]

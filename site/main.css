@@ -71,6 +71,12 @@ main {
     max-width: 20ch;
     min-width: 10ch; }
 
+.status--good {
+  background-color: #aea; }
+
+.status--bad {
+  background-color: #eaa; }
+
 .complete {
   padding: 1rem;
   border: #285c82 2px solid;
@@ -116,12 +122,6 @@ main {
   .complete__html__status {
     padding: 3px;
     border-radius: 3px; }
-    .complete__html__status--0 {
-      background-color: #aea; }
-    .complete__html__status--3, .complete__html__status--2, .complete__html__status--1 {
-      background-color: #eea; }
-    .complete__html__status--6, .complete__html__status--5, .complete__html__status--4 {
-      background-color: #eaa; }
   .complete .url {
     font-size: 1.5rem; }
 
