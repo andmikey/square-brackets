@@ -1,20 +1,24 @@
 {
-
-  "manifest_version": 2,
-  "name": "GDPR",
-  "version": "1.0",
-
-  "description": "Gives GDPR information for a webpage",
-
-  "icons": {
-    "48": "icons/border-48.png"
-  },
-
-  "content_scripts": [
-    {
-      "matches": ["*://*/"],
-      "js": ["extension.js"]
-    }
-  ]
-
+    
+    "manifest_version": 2,
+    "name": "GDPR",
+    "version": "1.0",
+    
+    "description": "Gives GDPR information for a webpage",
+    
+    "content_scripts": [
+	{
+	    "matches": ["<all_urls>"],
+	    "js": ["extension.js", "popup.js"]
+	}
+    ], 
+    
+    "browser_action": {
+	"default_popup": "popup.html",
+	"default_icon": "circle.png"
+    },
+    
+    "permissions": [
+	"tabs"
+    ]
 }
