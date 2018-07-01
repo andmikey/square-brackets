@@ -47,8 +47,52 @@
                 </div>
             </section>
             <section id="gdpr">
+	      <h2> What is GDPR? </h2>
+	      The General Data Protection Regulation is EU legislation for user privacy and personal data. This is any kind of personally identifiable information about you: like your name, email, date of birth, religion, political opinions, medical history. It gives control to you over your personal data, rather than the company holding it.
+	      
+	      You can find the full text of GDPR <a href="https://ec.europa.eu/info/law/law-topic/data-protection_en"> here </a>.
+
+	      <h2> What do these fields mean? </h2>
+	      We currently provide the following information about a website:
+	      <ul>
+		<li> <b> SSL certificate information </b>:
+		  An SSL certificate shows that any information sent between you and the website is encrypted. While GDPR does not explicitly require encryption, it is good practice to do so. We provide the following information about the SSL certificates: 
+		  <ul>
+		    <li> The date it starts being valid and the date it expires. An expired SSL certificate is a sign that the website is not actively ensuring your connection to it is secure. </li>
+		    <li> The algorithm the SSL certificate uses. Some algorithms are not cryptographically secure, leading to a possible risk of your data in transit. </li>
+		  </ul>
+		</li>
+		<li> <b> Privacy policy link </b>:
+		  A website should provide a privacy policy to let you know:
+		  <ul>
+		    <li> What data they collect </li>
+		    <li> Why they collect the data </li>
+		    <li> How long the data they collect is held for </li>
+		  </ul>
+		  We provide a link to the privacy policy of a website (if we can find it). 
+		</li>
+		<li>
+		  <b> Contact emails </b>: A website should provide contact details, for example if you want to make a Subject Access Request or update / delete any data they hold on you. We scrape all emails present in the privacy policy. 
+		</li>
+	      </ul>
             </section>
             <section id="about">
+	      <h2> Why should I care? </h2>
+	      Data privacy is a fundamental right in the digital age. By creating this website and API, we hope to democratize and improve the ease of access to basic knowledge about how a website is respecting your privacy.
+
+	      <h2> What are the caveats? </h2>
+	      We cannot guarantee internal GDPR compliance of an organisation: we have no way of looking at their internal processes for processing data. We also do not do any detailed processing of the privacy policy to analyse the exact details: this is something planned for a future release.
+
+	      <h2> What can I do if a website is not GDPR compliant? </h2>
+	      You should contact the Data Protection Authority for your Member State. You can find the contact details for your DPA <a href="http://ec.europa.eu/justice/article-29/structure/data-protection-authorities/index_en.htm"> here </a>. 
+	      The consequences for not being GDPR compliant vary by the severity of the offence.
+	      There are two levels of administrative fines:
+	      <ul> 
+	      <li> Up to €10 million or 2% of annual global turnover, whichever is higher </li>
+	      <li> Up to €20 million or 4% of annual global turnover, whichever is higher </li>
+	      </ul>
+	      You also have the right to compensation for damages caused by a company not abiding to GDPR.
+
             </section>
         </main>
         <script src="./main.js"></script>
