@@ -1,0 +1,165 @@
+/* Set visible outlines */
+/*
+#home  { background-color: #fee; }
+#gdpr  { background-color: #efe; }
+#about { background-color: #eef; }
+*/
+/* Default Mixins */
+/* Basic Padding, Margin, Sizing Layouts */
+* {
+  box-sizing: border-box;
+  color: #111; }
+
+body {
+  padding: 0;
+  margin: 0;
+  font: #111;
+  background-color: #eeeef8; }
+
+main {
+  width: 100%;
+  height: 100vh; }
+  main section {
+    width: 100%; }
+
+/* Home */
+#home {
+  min-height: 100vh;
+  padding: 80px;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: center; }
+  #home #checker {
+    flex: 1 0 auto;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: center; }
+    #home #checker #question {
+      flex: 0 0 auto;
+      font-size: 50px;
+      text-align: center;
+      margin: 0px; }
+      #home #checker #question input[name="website"] {
+        background-color: #eeeef8;
+        border-bottom: transparent 2px solid;
+        color: #285c82;
+        padding: 0 0.5ch;
+        margin: 0;
+        outline: 0;
+        border-top: 0;
+        border-left: 0;
+        border-right: 0;
+        font-family: serif;
+        font-weight: bold;
+        font-size: inherit;
+        width: 11ch;
+        text-align: left; }
+        #home #checker #question input[name="website"]:hover {
+          background-color: #e6e6f0; }
+        #home #checker #question input[name="website"]:active {
+          background-color: #ccccd6;
+          border-bottom: #285c82 2px solid; }
+        #home #checker #question input[name="website"]:focus {
+          background-color: #dddde7;
+          border-bottom: #285c82 2px solid; }
+  #home button[type="submit"] {
+    background-color: #eb9;
+    border: none;
+    width: 40%;
+    max-width: 20ch;
+    min-width: 10ch; }
+
+.complete {
+  padding: 1rem;
+  border: #285c82 2px solid;
+  border-radius: 1rem;
+  flex: 0 0 auto;
+  width: 100%;
+  overflow: hidden; }
+  body:not(.mode--complete) .complete {
+    display: none !important; }
+  .complete__tabs {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 1rem; }
+    .complete__tabs__html, .complete__tabs__json {
+      background-color: #eeeef8;
+      border-bottom: transparent 2px solid;
+      cursor: pointer;
+      border-bottom: #285c82 2px solid;
+      width: 6ch;
+      text-align: center;
+      height: 1.5em;
+      line-height: 1.5em; }
+      .complete__tabs__html:hover, .complete__tabs__json:hover {
+        background-color: #e6e6f0; }
+      .complete__tabs__html:active, .complete__tabs__json:active {
+        background-color: #ccccd6;
+        border-bottom: #285c82 2px solid; }
+      .complete__tabs__html:focus, .complete__tabs__json:focus {
+        background-color: #dddde7;
+        border-bottom: #285c82 2px solid; }
+    .mode--json .complete__tabs__html {
+      border-bottom-width: 0; }
+    body:not(.mode--json) .complete__tabs__json {
+      border-bottom-width: 0; }
+  body:not(.mode--json) .complete__json {
+    display: none; }
+  .mode--json .complete__html {
+    display: none; }
+  .complete__json__text {
+    resize: none;
+    width: 100%;
+    height: 10rem; }
+  .complete__html__status {
+    padding: 3px;
+    border-radius: 3px; }
+    .complete__html__status--0 {
+      background-color: #aea; }
+    .complete__html__status--3, .complete__html__status--2, .complete__html__status--1 {
+      background-color: #eea; }
+    .complete__html__status--6, .complete__html__status--5, .complete__html__status--4 {
+      background-color: #eaa; }
+  .complete .url {
+    font-size: 1.5rem; }
+
+.pending {
+  flex: 3 0 auto;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: center; }
+  body:not(.mode--pending) .pending {
+    display: none !important; }
+  .pending .loader {
+    width: 200px;
+    height: 2.5rem;
+    line-height: 2.5rem;
+    font-size: 1.5rem;
+    font-family: monospace;
+    text-align: center;
+    position: relative;
+    border-radius: 5px;
+    overflow: hidden; }
+@keyframes segment {
+  0% {
+    width: 0%;
+    left: 0; }
+  50% {
+    width: 100%;
+    right: 0; }
+  100% {
+    width: 0%;
+    right: 0; } }
+    .pending .loader .segment {
+      color: #285c82;
+      top: 0;
+      z-index: -1;
+      height: 100%;
+      background-color: lightblue;
+      position: absolute;
+      animation: 3s ease-in-out 0s infinite segment; }
+
+/*# sourceMappingURL=main.css.map */

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Square Brackets</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="Check whether a site is properly GDPR
+        compliant.">
+        <meta name="author" content="Joe, Edward, Michael, Dylan">
+        <link rel="stylesheet" type="text/css" href="./main.css">
+    </head>
+    <body>
+        <main>
+            <section id="home">
+                <form id="checker" method="POST">
+                    <h1 id="question">
+                        Is
+                        <input type="text" name="website" placeholder="website
+                        here" autocomplete="off"/>
+                        GDPR compliant?
+                    </h1>
+                </form>
+                <div class="complete">
+                    <nav class="complete__tabs">
+                        <div class="complete__tabs__html">HTML</div>
+                        <div class="complete__tabs__json">JSON</div>
+                    </nav>
+                    <div class="complete__html">
+                        <h3>
+                            <span class="complete__html__url"></span>
+                            -
+                            <span class="complete__html__status"></span>
+                        </h3>
+                        <h3 style="margin-bottom: 0.5rem;">Trackers (<span
+                                class="complete__html__tracker-count"></span>)</h3>
+                        <div class="complete__html__trackers"></div>
+                    </div>
+                    <div class="complete__json">
+                        <textarea class="complete__json__text"></textarea>
+                    </div>
+                </div>
+                <div class="pending">
+                    <div class="loader">
+                        Loading...
+                        <div class="segment"></div>
+                    </div>
+                </div>
+            </section>
+            <section id="gdpr">
+            </section>
+            <section id="about">
+            </section>
+        </main>
+        <script src="./main.js"></script>
+    </body>
+</html>

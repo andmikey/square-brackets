@@ -1,0 +1,170 @@
+/* Set visible outlines */
+/*
+#home  { background-color: #fee; }
+#gdpr  { background-color: #efe; }
+#about { background-color: #eef; }
+*/
+
+$font: #111;
+$background: #eeeef8;
+$accent: #285c82;
+
+/* Default Mixins */
+@mixin flex-column {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
+}
+@mixin button($bg) {
+    background-color: $bg;
+    border-bottom: transparent 2px solid;
+    &:hover { background-color: $bg - #080808; }
+    &:active {
+        background-color: $bg - #222;
+        border-bottom: $accent 2px solid;
+    }
+    &:focus {
+        background-color: $bg - #111;
+        border-bottom: $accent 2px solid;
+    }
+}
+
+/* Basic Padding, Margin, Sizing Layouts */
+* {
+    box-sizing: border-box;
+    color: $font;
+}
+body {
+    padding: 0;
+    margin: 0;
+    font: $font;
+    background-color: $background;
+}
+main {
+    width: 100%;
+    height: 100vh;
+    section {
+        width: 100%;
+    }
+}
+
+/* Home */
+#home {
+    min-height: 100vh;
+    padding: 80px;
+    @include flex-column;
+    #checker {
+        flex: 1 0 auto;
+        @include flex-column;
+        #question {
+            flex: 0 0 auto;
+            font-size: 50px;
+            text-align: center;
+            margin: 0px;
+            input[name="website"] {
+                @include button($background);
+                color: $accent;
+                padding: 0 0.5ch;
+                margin: 0;
+                outline: 0;
+                border-top: 0;
+                border-left: 0;
+                border-right: 0;
+                font-family: serif;
+                font-weight: bold;
+                font-size: inherit;
+                width: 11ch;
+                text-align: left;
+            }
+        }
+    }
+    button[type="submit"] {
+        background-color: #eb9;
+        border: none;
+        width: 40%;
+        max-width: 20ch;
+        min-width: 10ch;
+    }
+}
+
+.complete {
+    body:not(.mode--complete) & { display: none !important; }
+    padding: 1rem;
+    border: $accent 2px solid;
+    border-radius: 1rem;
+    flex: 0 0 auto;
+    width: 100%;
+    overflow: hidden;
+    &__tabs {
+        display: flex;
+        flex-direction: row;
+        margin-bottom: 1rem;
+        &__html, &__json {
+            @include button($background);
+            cursor: pointer;
+            border-bottom: $accent 2px solid;
+            width: 6ch;
+            text-align: center;
+            height: 1.5em;
+            line-height: 1.5em;
+        } 
+        &__html { .mode--json & { border-bottom-width: 0; } }
+        &__json { body:not(.mode--json) & { border-bottom-width: 0; } }
+    }
+    &__json { body:not(.mode--json) & { display: none; } }
+    &__html { .mode--json & { display: none; } }
+    &__json {
+        &__text {
+            resize: none;
+            width: 100%;
+            height: 10rem;
+        }
+    }
+    &__html {
+        &__status {
+            padding: 3px;
+            border-radius: 3px;
+            &--0 {
+                background-color: #aea;
+            }
+            &--3, &--2, &--1 {
+                background-color: #eea;
+            }
+            &--6, &--5, &--4 {
+                background-color: #eaa;
+            }
+        }
+    }
+    .url { font-size: 1.5rem; }
+}
+.pending {
+    body:not(.mode--pending) & { display: none !important; }
+    flex: 3 0 auto;
+    @include flex-column;
+    .loader {
+        width: 200px;
+        height: 2.5rem;
+        line-height: 2.5rem;
+        font-size: 1.5rem;
+        font-family: monospace;
+        text-align: center;
+        position: relative;
+        border-radius: 5px;
+        overflow: hidden;
+        @keyframes segment {
+            0%   { width: 0%; left: 0; }
+            50%  { width: 100%; right: 0; }
+            100% { width: 0%; right: 0; }
+        }
+        .segment {
+            color: $accent;
+            top: 0;
+            z-index: -1;
+            height: 100%;
+            background-color: lightblue;
+            position: absolute;
+            animation: 3s ease-in-out 0s infinite segment;
+        }
+    }
+}
