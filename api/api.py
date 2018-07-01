@@ -65,7 +65,8 @@ def get_info(url):
     return json.dumps({"url": url,
                        "ssl": ssl_details,
                        "privacy_policy_url": policy_url,
-                       "contact_emails": emails})
+                       "contact_emails": emails,
+                       "trackers": []})
 
 @app.route("/api/v0/<url>")
 def main(url):
@@ -74,5 +75,3 @@ def main(url):
 
 if __name__ == "__main__":
     app.run()
-
-    
