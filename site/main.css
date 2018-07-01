@@ -55,7 +55,7 @@ main {
         font-weight: bold;
         font-size: inherit;
         width: 10ch;
-        text-align: left; }
+        text-align: center; }
         #home #checker #question input[name="website"]:hover {
           background-color: #e6e6f0; }
         #home #checker #question input[name="website"]:active {
