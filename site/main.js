@@ -32,7 +32,7 @@ var realData = `{"url": "theguardian.com", "ssl": {"algorithm": "sha256WithRSAEn
 
 var modifyWebsiteInputSize = function (e) {
     var a = this.value.length;
-    if (a < 11) a = 11;
+    if (a < 10) a = 10;
     else a++;
     this.style.width = a + "ch";
 }
@@ -46,7 +46,7 @@ var submitForm = function (e) {
     var site = websiteInput.value;
     setTimeout(function () {
         setComplete();
-        var data = JSON.parse(sampleData)
+        var data = JSON.parse(realData)
         populateHTML(data, document.getElementsByClassName("complete__html")[0]);
         populateJSON(data, document.getElementsByClassName("complete__json")[0]);
     }, 100);
@@ -78,6 +78,8 @@ var populateJSON = function (data, el) {
 }
 
 var populateHTML = function (data, el) {
+    if (data.trackers == undefined) data.trackers = [];
+
     var prefix = "complete__html__";
     var getComponent = function (className) { return el.getElementsByClassName(prefix + className); }
     var url = getComponent("url")[0];
@@ -85,7 +87,6 @@ var populateHTML = function (data, el) {
 
     var status = getComponent("status")[0]
     var issueCount = 0;
-    console.log(data);
     issueCount += data.privacy_policy_url === "" ? 1 : 0;
     issueCount += data.contact_emails.length === 0 ? 1 : 0;
     issueCount += data.trackers.length !== 0 ? 1 : 0;
@@ -123,12 +124,23 @@ var populateHTML = function (data, el) {
         for (var email of data.contact_emails) {
             var itemContainer = document.createElement("div");
             itemContainer.classList.add(prefix + "tracker-container")
+            itemContainer.innerHTML = "Contact them regarding your data at "
             var emailEl = document.createElement("a");
             emailEl.href = "mailto:" + email;
             emailEl.innerHTML = email;
             itemContainer.appendChild(emailEl);
             contactEmails.appendChild(itemContainer);
         }
+    }
+
+    var privacyPolicy = getComponent("privacy-policy")[0];
+    var privacyPolicyTitle = getComponent("privacy-policy-title")[0];
+    if (data.privacy_policy_url === "" || data.privacy_policy_url == null) {
+        privacyPolicyTitle.classList.add("status--bad");
+        privacyPolicy.innerHTML = "This site does not provide a link to their privacy policy.";
+    } else {
+        privacyPolicyTitle.classList.add("status--good");
+        privacyPolicy.innerHTML = 'Read their privacy policy at <a href="' + data.privacy_policy_url + '">' + data.privacy_policy_url + '</a>';
     }
 }
 
